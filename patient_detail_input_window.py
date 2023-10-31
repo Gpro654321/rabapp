@@ -2,6 +2,7 @@ from kivy.uix.screenmanager import Screen
 
 
 from patient_database import PatientDatabase
+import sendsms
 
 class PatientDetailInputWindow(Screen):
     pass
@@ -16,13 +17,20 @@ class PatientDetailInputWindow(Screen):
         dob = self.ids.dob.text
         phone = self.ids.phone.text
 
+        # insert into table "detail"
         patient_db.insert_in_table_detail(name,dob,phone)
 
-        print(name)
-        print(dob)
-        print(phone)
-        
         rec = patient_db.display_from_table_detail()
         print(rec)
+
+        # insert into table "vacdates"
+        patient_db.insert_in_table_vacdates(phone)
+
+        rec2 = patient_db.display_from_table_vacdates()
+        # rec2 = patient_db.display_from_table_vacdates_on_a_date('2023-11-03')
+        print("From Vacdates")
+        print(rec2)
+
+        # sendsms.send_remainders()
 
     # }}}
