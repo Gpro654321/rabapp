@@ -1,5 +1,6 @@
 from plyer import sms
 
+
 from patient_database import PatientDatabase
 
 def get_numbers_to_send_sms():
@@ -28,3 +29,4 @@ def send_remainders():
 
     for i in phone:
         send_sms(i)
+

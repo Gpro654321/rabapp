@@ -2,8 +2,12 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivy.utils import platform
+from jnius import autoclass
 
 # if android request permissions
+# Watch following video on how to add permissions to your app
+# "https://www.youtube.com/watch?v=okpiDnSR4z8"
 if platform == "android":
     from android.permissions import request_permissions, Permission
     request_permissions([Permission.SEND_SMS,Permission.VIBRATE])
@@ -27,15 +31,24 @@ class RabiesSmsApp(App):
     def build(self):
         return kv
 
+    def on_start(self, **kwargs):
+        if platform == "android":
+            from android.permissions import request_permissions, Permission
+            request_permissions([Permission.SEND_SMS, Permission.VIBRATE])
 
-'''
-
-class RabiesSmsApp(App):
-    def build(self):
-        return PatientInputScreen() 
+            # start service
+            self.start_service()
+            print("started_service")
 
 
-'''
+    @staticmethod
+    def start_service():
+        # got it from here "https://www.youtube.com/watch?v=f57ItZCtliM&t=718s"
+        service = autoclass('org.rabapp.rabapp.ServiceMyservice')
+        mActivity = autoclass('org.kivy.android.PythonActivity').mActivity
+        argument = ''
+        service.start(mActivity, argument)
+
 
 if __name__ == "__main__":
     app = RabiesSmsApp()
