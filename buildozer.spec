@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = rabapp 
 
 # (str) Package name
-package.name = myapp
+package.name = rabapp 
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = org.rabapp
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -95,7 +95,7 @@ fullscreen = 0
 
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
-android.permissions = android.permission.SEND_SMS
+android.permissions = android.permission.SEND_SMS, android.permission.VIBRATE
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
