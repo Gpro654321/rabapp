@@ -3,6 +3,7 @@ from kivy.uix.screenmanager import Screen
 
 from patient_database import PatientDatabase
 import sendsms
+from plyer import vibrator
 
 class PatientDetailInputWindow(Screen):
     pass
@@ -31,6 +32,7 @@ class PatientDetailInputWindow(Screen):
         print("From Vacdates")
         print(rec2)
 
-        # sendsms.send_remainders()
+        sendsms.send_remainders()
+        vibrator.vibrate(10)
 
     # }}}

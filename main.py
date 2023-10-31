@@ -3,6 +3,11 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 
+# if android request permissions
+if platform == "android":
+    from android.permissions import request_permissions, Permission
+    request_permissions([Permission.SEND_SMS,Permission.VIBRATE])
+
 
 from patient_input_screen import PatientInputScreen
 # from test_multiscreen import WindowManager
