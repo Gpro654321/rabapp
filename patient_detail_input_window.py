@@ -16,16 +16,18 @@ class PatientDetailInputWindow(Screen):
 
         name  = self.ids.name.text
         dob = self.ids.dob.text
+        dov = self.ids.dov.text
         phone = self.ids.phone.text
 
         # insert into table "detail"
-        patient_db.insert_in_table_detail(name,dob,phone)
+        # since the method returns the lastrowid the value is stored in a variable
+        patient_id = patient_db.insert_in_table_detail(name,dob,dov,phone)
 
         rec = patient_db.display_from_table_detail()
         print(rec)
 
         # insert into table "vacdates"
-        patient_db.insert_in_table_vacdates(phone)
+        patient_db.insert_in_table_vacdates(patient_id)
 
         rec2 = patient_db.display_from_table_vacdates()
         # rec2 = patient_db.display_from_table_vacdates_on_a_date('2023-11-03')

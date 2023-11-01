@@ -1,9 +1,10 @@
 # {{{ PatientDetailInputWindow 
 <PatientDetailInputWindow>:
 	name: "Patient Input"
-
+	
 	BoxLayout:
 		orientation: "vertical"
+		height: .6
 
 		Button:
 			text: "Hamburger Menu"
@@ -11,24 +12,39 @@
 				app.root.current = 'Patient Display'
 				root.manager.transition.direction = "right"
 
-		Label:
-			text: "Name: "
-		TextInput:
-			id: name
-			multiline: False
+		ScrollView:
 
-		Label:
-			text: "Dob: "
-		TextInput:
-			id: dob
-			multiline: False
+			BoxLayout:
+				orientation: "vertical"
+				size_hint: 1, None
+				height: 4000
 
-		Label:
-			text: "Phone: "
-		TextInput:
-			id: phone
-			multiline: False
-		
+
+				Label:
+					text: "Name: "
+				TextInput:
+					id: name
+					multiline: False
+
+				Label:
+					text: "Dob: "
+				TextInput:
+					id: dob
+					multiline: False
+
+				Label:
+					text: "Date of Oth Vaccination"
+
+				TextInput:
+					id: dov
+					multiline: False
+
+				Label:
+					text: "Phone: "
+				TextInput:
+					id: phone
+					multiline: False
+			
 		Button:
 			text: "Submit"
 			on_press:
