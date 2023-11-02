@@ -2,9 +2,9 @@
 <PatientDetailInputWindow>:
 	name: "Patient Input"
 	
-	BoxLayout:
+	MDBoxLayout:
 		orientation: "vertical"
-		size_hint: 1, .6
+		size_hint: 1, .5
 		pos_hint: {'top': 1}
 
 		Button:
@@ -14,43 +14,49 @@
 				app.root.current = 'Patient Display'
 				root.manager.transition.direction = "right"
 
-		ScrollView:
 
-			BoxLayout:
-				orientation: "vertical"
-				size_hint: 1, None 
-				height: self.minimum_height
-				# height: 4000
+		MDBoxLayout:
+			orientation: "vertical"
+			# size_hint: 1, None 
+			# height: self.minimum_height
+			# height: 4000
 
-				TextInput:
-					id: name
-					hint_text: "Patient Name"
-					multiline: False
-					size_hint: 1, None 
-					height: "20dp"
+			TextInput:
+				id: name
+				hint_text: "Patient Name"
+				multiline: False
+				size_hint: .8, .25 
 
-				TextInput:
-					id: dob
-					hint_text: "Patient's Date Of Birth"
-					multiline: False
-					size_hint: 1, None 
-					height: "20dp"
+				pos_hint: {'center_x': 0.5}
+				# height: "20dp"
 
+			TextInput:
+				id: dob
+				hint_text: "Patient's Date Of Birth"
+				multiline: False
+				size_hint: .8, .25 
 
-				TextInput:
-					id: dov
-					hint_text: "Date of 0th Vaccination"
-					multiline: False
-					size_hint: 1, None 
-					height: "20dp"
+				pos_hint: {'center_x': 0.5}
+				# height: "20dp"
 
 
-				TextInput:
-					id: phone
-					hint_text: "Patient's phone number"
-					multiline: False
-					size_hint: 1, None 
-					height: "20dp"
+			TextInput:
+				id: dov
+				hint_text: "Date of 0th Vaccination"
+				multiline: False
+				size_hint: .8,.25
+
+				pos_hint: {'center_x': 0.5}
+				# height: "20dp"
+
+
+			TextInput:
+				id: phone
+				hint_text: "Patient's phone number"
+				multiline: False
+				size_hint: .8, .25 
+				pos_hint: {'center_x': 0.5}
+				# height: "20dp"
 			
 		Button:
 			text: "Submit"

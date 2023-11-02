@@ -1,0 +1,75 @@
+# {{{ PatientDetailInputWindow 
+<PatientDetailInputWindow>:
+	name: "Patient Input"
+	
+	MDBoxLayout:
+		orientation: "vertical"
+		size_hint: 1, .5
+		pos_hint: {'top': 1}
+		md_bg_color: '#1EA87F4B' 
+
+		MDRectangleFlatButton:
+			text: "Hamburger Menu"
+			size_hint: 1, .1
+			on_release:
+				app.root.current = 'Patient Display'
+				root.manager.transition.direction = "right"
+
+
+		MDBoxLayout:
+			orientation: "vertical"
+			# size_hint: 1, None 
+			# height: self.minimum_height
+			# height: 4000
+
+			MDTextField:
+				id: name
+				mode: "round"
+				hint_text: "Patient Name"
+				multiline: False
+				size_hint: .8, .25 
+
+				pos_hint: {'center_x': 0.5}
+
+				md_bg_color: 0, 1, 1, 0.75
+				# height: "20dp"
+
+
+			MDTextField:
+				id: dob
+				mode: "rectangle"
+				hint_text: "Patient's Date Of Birth"
+				multiline: False
+				size_hint: .8, .25 
+
+				pos_hint: {'center_x': 0.5}
+				# height: "20dp"
+
+
+			MDTextField:
+				id: dov
+				mode: "fill"
+				hint_text: "Date of 0th Vaccination"
+				multiline: False
+				size_hint: .8,.25
+
+				pos_hint: {'center_x': 0.5}
+				# height: "20dp"
+
+
+			TextInput:
+				id: phone
+				hint_text: "Patient's phone number"
+				multiline: False
+				size_hint: .8, .25 
+				pos_hint: {'center_x': 0.5}
+				# height: "20dp"
+			
+		Button:
+			text: "Submit"
+			size_hint: .3, .1
+			pos_hint: {'center_x': 0.5}
+			on_press:
+				root.on_press_button(isinstance)
+	
+# }}}

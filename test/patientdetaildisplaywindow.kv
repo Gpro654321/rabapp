@@ -1,0 +1,15 @@
+# {{{ PatientDetailDisplayWindow 
+
+<PatientDetailDisplayWindow>:
+	name: "Patient Display"
+	BoxLayout:
+		orientation: "vertical"
+		
+		Button:
+			text: "Back "
+
+			on_release:
+				app.root.current = 'Patient Input'
+				root.manager.transition.direction = "left"
+
+# }}}

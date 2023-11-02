@@ -1,5 +1,6 @@
 # main.py
-from kivy.app import App
+# from kivy.app import App
+from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.utils import platform
@@ -27,7 +28,7 @@ Window.softinput_mode = 'below_target'
 kv = Builder.load_file('./windowmanager.kv')
 
 
-class RabiesSmsApp(App):
+class RabiesSmsApp(MDApp):
     def build(self):
         return kv
 
