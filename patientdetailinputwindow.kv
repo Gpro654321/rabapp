@@ -4,10 +4,12 @@
 	
 	BoxLayout:
 		orientation: "vertical"
-		height: .6
+		size_hint: 1, .6
+		pos_hint: {'top': 1}
 
 		Button:
 			text: "Hamburger Menu"
+			size_hint: 1, .1
 			on_release:
 				app.root.current = 'Patient Display'
 				root.manager.transition.direction = "right"
@@ -16,37 +18,44 @@
 
 			BoxLayout:
 				orientation: "vertical"
-				size_hint: 1, None
-				height: 4000
+				size_hint: 1, None 
+				height: self.minimum_height
+				# height: 4000
 
-
-				Label:
-					text: "Name: "
 				TextInput:
 					id: name
+					hint_text: "Patient Name"
 					multiline: False
+					size_hint: 1, None 
+					height: "20dp"
 
-				Label:
-					text: "Dob: "
 				TextInput:
 					id: dob
+					hint_text: "Patient's Date Of Birth"
 					multiline: False
+					size_hint: 1, None 
+					height: "20dp"
 
-				Label:
-					text: "Date of Oth Vaccination"
 
 				TextInput:
 					id: dov
+					hint_text: "Date of 0th Vaccination"
 					multiline: False
+					size_hint: 1, None 
+					height: "20dp"
 
-				Label:
-					text: "Phone: "
+
 				TextInput:
 					id: phone
+					hint_text: "Patient's phone number"
 					multiline: False
+					size_hint: 1, None 
+					height: "20dp"
 			
 		Button:
 			text: "Submit"
+			size_hint: .3, .1
+			pos_hint: {'center_x': 0.5}
 			on_press:
 				root.on_press_button(isinstance)
 	
