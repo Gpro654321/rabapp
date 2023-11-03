@@ -6,7 +6,7 @@
 		orientation: "vertical"
 		size_hint: 1, .5
 		pos_hint: {'top': 1}
-		md_bg_color: '#1EA87F4B' 
+		md_bg_color: app.theme_cls.primary_color
 
 		MDRectangleFlatButton:
 			text: "Hamburger Menu"
@@ -21,28 +21,31 @@
 			# size_hint: 1, None 
 			# height: self.minimum_height
 			# height: 4000
+			md_bg_color: app.theme_cls.primary_color 
+			spacing: 5
 
 			MDTextField:
 				id: name
-				mode: "round"
+				mode: "fill"
 				hint_text: "Patient Name"
 				multiline: False
 				size_hint: .8, .25 
-
 				pos_hint: {'center_x': 0.5}
-
-				md_bg_color: 0, 1, 1, 0.75
+				md_bg_color: app.theme_cls.bg_normal 
 				# height: "20dp"
-
 
 			MDTextField:
 				id: dob
-				mode: "rectangle"
+				mode: "fill"
 				hint_text: "Patient's Date Of Birth"
 				multiline: False
 				size_hint: .8, .25 
 
 				pos_hint: {'center_x': 0.5}
+
+				md_bg_color: app.theme_cls.bg_normal 
+				write_tab: False
+				disabled: True
 				# height: "20dp"
 
 
@@ -54,15 +57,20 @@
 				size_hint: .8,.25
 
 				pos_hint: {'center_x': 0.5}
+
+				md_bg_color: app.theme_cls.bg_normal 
 				# height: "20dp"
 
 
-			TextInput:
+			MDTextField:
 				id: phone
 				hint_text: "Patient's phone number"
 				multiline: False
+				mode: "fill"
 				size_hint: .8, .25 
 				pos_hint: {'center_x': 0.5}
+
+				md_bg_color: app.theme_cls.bg_normal 
 				# height: "20dp"
 			
 		Button:

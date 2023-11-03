@@ -29,7 +29,9 @@ Window.softinput_mode = 'below_target'
 
 class RabiesSmsApp(MDApp):
     def build(self):
-        self.theme_cls.primary_palette = "Red"
+        self.theme_cls.primary_palette = "Teal"
+        self.theme_cls.primary_hue = '300'
+        
         kv = Builder.load_file('./windowmanager.kv')
         return kv
 
