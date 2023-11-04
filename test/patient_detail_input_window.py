@@ -1,4 +1,5 @@
 from kivy.uix.screenmanager import Screen
+from kivymd.uix.pickers import MDDatePicker
 
 
 from patient_database import PatientDatabase
@@ -38,3 +39,9 @@ class PatientDetailInputWindow(Screen):
         vibrator.vibrate(10)
 
     # }}}
+
+    #{{{show_date_picker
+    def show_date_picker(self):
+        date_dialog = MDDatePicker()
+        date_dialog.open()
+    #}}}
