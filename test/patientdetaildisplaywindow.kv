@@ -2,14 +2,23 @@
 
 <PatientDetailDisplayWindow>:
 	name: "Patient Display"
-	BoxLayout:
+	MDBoxLayout:
 		orientation: "vertical"
 		
-		Button:
+		MDRectangleFlatButton:
 			text: "Back "
 
 			on_release:
 				app.root.current = 'Patient Input'
 				root.manager.transition.direction = "left"
+
+		PatientDetailLabel:
+
+
+<PatientDetailLabel>:
+
+
+
+
 
 # }}}

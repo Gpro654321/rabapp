@@ -46,7 +46,7 @@
 				md_bg_color: app.theme_cls.bg_normal 
 				write_tab: False
 				# disabled: True
-				on_focus: root.show_date_picker() 
+				on_focus: root.show_date_picker("dob") 
 				# height: "20dp"
 
 
@@ -60,6 +60,10 @@
 				pos_hint: {'center_x': 0.5}
 
 				md_bg_color: app.theme_cls.bg_normal 
+
+				write_tab: False
+				# disabled: True
+				on_focus: root.show_date_picker("dov") 
 				# height: "20dp"
 
 

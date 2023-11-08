@@ -196,6 +196,7 @@ class PatientDatabase:
     # {{{ display_from_table_vacdates
 
     def display_from_table_vacdates(self):
+        print("inside display_from_table_vacdates")
 
         # connection
         con = self.create_patient_db()
@@ -204,14 +205,19 @@ class PatientDatabase:
         cur = con.cursor()
 
         # reference from "https://realpython.com/python-sql-libraries/#join"
-        res = cur.execute(
-            "SELECT detail.name, detail.phone from vacdates INNER JOIN detail ON vacdates.patientid = detail.patientid"
-        )
-        records = res.fetchall()
+        try:
+            print("inside try")
+            res = cur.execute(
+                "SELECT detail.name, detail.phone from vacdates INNER JOIN detail ON vacdates.patientid = detail.patientid"
+            )
+            records = res.fetchall()
 
-        con.close()
+            con.close()
 
-        return records
+            return records
+        except:
+            print("except")
+            return []
     # }}}
 
     # {{{ display from table vacdates on a particular date 

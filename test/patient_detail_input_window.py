@@ -1,10 +1,14 @@
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.pickers import MDDatePicker
 
+from kivy.utils import platform
+
 
 from patient_database import PatientDatabase
-import sendsms
-from plyer import vibrator
+
+if platform == "android":
+    import sendsms
+    from plyer import vibrator
 
 class PatientDetailInputWindow(Screen):
     pass
@@ -35,13 +39,41 @@ class PatientDetailInputWindow(Screen):
         print("From Vacdates")
         print(rec2)
 
-        sendsms.send_remainders()
-        vibrator.vibrate(10)
+
+        if platform == "android":
+            sendsms.send_remainders()
+            vibrator.vibrate(10)
 
     # }}}
 
+    #{{{ on_save1
+    def on_save1(self, instance, value, date_range):
+        # print(instance, value)
+        self.ids.dob.text = value.strftime("%d-%m-%Y")
+        # return value
+    #}}}
+
+    #{{{ on_save2
+    def on_save2(self, instance, value, date_range):
+        # print(instance, value)
+        self.ids.dov.text = value.strftime("%d-%m-%Y")
+        # return value
+    #}}}
+
+    #{{{ on_cancel 
+    def on_cancel(self, instance, value):
+        pass
+
+    #}}}
+
     #{{{show_date_picker
-    def show_date_picker(self):
+    def show_date_picker(self, field):
         date_dialog = MDDatePicker()
+        if (field == "dob"):
+            date_dialog.bind(on_save = self.on_save1, on_cancel=self.on_cancel)
+        if (field == "dov"):
+            date_dialog.bind(on_save = self.on_save2, on_cancel=self.on_cancel)
+
+
         date_dialog.open()
     #}}}

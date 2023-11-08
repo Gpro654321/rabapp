@@ -204,14 +204,17 @@ class PatientDatabase:
         cur = con.cursor()
 
         # reference from "https://realpython.com/python-sql-libraries/#join"
-        res = cur.execute(
-            "SELECT detail.name, detail.phone from vacdates INNER JOIN detail ON vacdates.patientid = detail.patientid"
-        )
-        records = res.fetchall()
+        try:
+            res = cur.execute(
+                "SELECT detail.name, detail.phone from vacdates INNER JOIN detail ON vacdates.patientid = detail.patientid"
+            )
+            records = res.fetchall()
 
-        con.close()
+            con.close()
 
-        return records
+            return records
+        except:
+            return []
     # }}}
 
     # {{{ display from table vacdates on a particular date 

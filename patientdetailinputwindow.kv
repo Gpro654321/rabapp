@@ -6,8 +6,10 @@
 		orientation: "vertical"
 		size_hint: 1, .5
 		pos_hint: {'top': 1}
+		md_bg_color: app.theme_cls.primary_color
+		padding: 1,1,1,1 
 
-		Button:
+		MDRectangleFlatButton:
 			text: "Hamburger Menu"
 			size_hint: 1, .1
 			on_release:
@@ -20,46 +22,104 @@
 			# size_hint: 1, None 
 			# height: self.minimum_height
 			# height: 4000
+			md_bg_color: app.theme_cls.primary_color 
+			spacing: 5
 
-			TextInput:
+			MDTextField:
 				id: name
+				mode: "fill"
 				hint_text: "Patient Name"
 				multiline: False
 				size_hint: .8, .25 
-
 				pos_hint: {'center_x': 0.5}
+				md_bg_color: app.theme_cls.bg_normal 
+				# height: "20dp"
+			MDGridLayout:
+				cols: 2
+				size_hint: .8, .25
+				pos_hint: {'center_x': 0.5}
+
+				MDLabel:
+					id: dob_label
+					text: "Patient DOB"
+					md_bg_color: app.theme_cls.bg_normal 
+					size_hint: .5, .1 
+					pos_hint: {'center_x': 0.5}
+
+				MDRaisedButton:
+					id: dob
+					text: "Patient's Date Of Birth"
+					md_bg_color: app.theme_cls.bg_normal 
+					size_hint: .5, .1 
+					pos_hint: {'center_x': 0.5}
+					on_release: root.show_date_picker("dob") 
+
+			#MDTextField:
+			#	id: dob
+			#	mode: "fill"
+			#	hint_text: "Patient's Date Of Birth"
+			#	multiline: False
+			#	size_hint: .8, .25 
+			#
+			#	pos_hint: {'center_x': 0.5}
+
+			# 	md_bg_color: app.theme_cls.bg_normal 
+			#	write_tab: False
+			# 	disabled: True
+			#	on_focus: root.show_date_picker("dob") 
 				# height: "20dp"
 
-			TextInput:
-				id: dob
-				hint_text: "Patient's Date Of Birth"
-				multiline: False
-				size_hint: .8, .25 
-
+			MDGridLayout:
+				cols: 2
+				size_hint: .8, .25
 				pos_hint: {'center_x': 0.5}
+
+				MDLabel:
+					id: dov_label
+					text: "Date Of 0th Vac"
+					md_bg_color: app.theme_cls.bg_normal 
+					size_hint: .5, .1 
+					pos_hint: {'center_x': 0.5}
+
+				MDRaisedButton:
+					id: dov
+					text: "Date Of 0th Vac"
+					md_bg_color: app.theme_cls.bg_normal 
+					size_hint: .5, .1 
+					pos_hint: {'center_x': 0.5}
+					on_release: root.show_date_picker("dov") 
+
+			#MDTextField:
+			#	id: dov
+			#	mode: "fill"
+			#	hint_text: "Date of 0th Vaccination"
+			#	multiline: False
+			#	size_hint: .8,.25
+			#	pos_hint: {'center_x': 0.5}
+			# 	md_bg_color: app.theme_cls.bg_normal 
+
+			#	write_tab: False
+				# disabled: True
+			#	on_focus: root.show_date_picker("dov") 
 				# height: "20dp"
 
 
-			TextInput:
-				id: dov
-				hint_text: "Date of 0th Vaccination"
-				multiline: False
-				size_hint: .8,.25
 
-				pos_hint: {'center_x': 0.5}
-				# height: "20dp"
-
-
-			TextInput:
+			MDTextField:
 				id: phone
 				hint_text: "Patient's phone number"
 				multiline: False
+				mode: "fill"
 				size_hint: .8, .25 
 				pos_hint: {'center_x': 0.5}
+
+				md_bg_color: app.theme_cls.bg_normal 
+				input_type: 'tel'
 				# height: "20dp"
 			
-		Button:
+		MDRectangleFlatButton:
 			text: "Submit"
+			md_bg_color:app.theme_cls.bg_normal
 			size_hint: .3, .1
 			pos_hint: {'center_x': 0.5}
 			on_press:

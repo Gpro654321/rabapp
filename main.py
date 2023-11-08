@@ -25,11 +25,13 @@ Window.keyboard_anim_args = {'d':.2,'t':'in_out_expo'}
 Window.softinput_mode = 'below_target'
 
 
-kv = Builder.load_file('./windowmanager.kv')
-
-
 class RabiesSmsApp(MDApp):
     def build(self):
+
+        self.theme_cls.primary_palette = "Teal"
+        self.theme_cls.primary_hue = '400'
+        
+        kv = Builder.load_file('./windowmanager.kv')
         return kv
 
     def on_start(self, **kwargs):
