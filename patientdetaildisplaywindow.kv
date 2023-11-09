@@ -3,10 +3,16 @@
 <PatientDetailDisplayWindow>:
 	name: "Patient Display"
 	MDBoxLayout:
+		id: box_layout_1
 		orientation: "vertical"
 
+		MDScrollView:
+			md_bg_color: app.theme_cls.secondary_text_color
 
-		PatientDetailLabel:
+			PatientDetailLabel:
+				id: box_layout_2 
+				md_bg_color: app.theme_cls.opposite_text_color 
+				height: self.minimum_height
 		
 		MDRectangleFlatButton:
 			text: "Back "
@@ -16,10 +22,8 @@
 				root.manager.transition.direction = "left"
 
 <PatientDetailLabel>:
-	MDBoxLayout:
-		id: patient_label_layout
-		orientation: "vertical"
-		size_hint: 1, .8
+	orientation: "vertical"
+	size_hint: 1, .8
 
 
 
